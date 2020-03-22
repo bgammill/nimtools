@@ -1,7 +1,9 @@
+#!/usr/bin/env bash
+
 echo "beginning build process"
 
 # find each .nim file
-for i in `find . -name "*.nim" -type f`; do
+for i in $(find . -name "*.nim" -type f); do
     # compile and strip
     echo "compiling ${i}"
     nim c -d:release --opt:size --passL:-s --passL:-w "${i}" > /dev/null 2>&1
